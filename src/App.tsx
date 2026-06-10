@@ -646,7 +646,7 @@ function isJornadaComplete(jornada, results) {
 // API CLIENT  —  apunta al Cloudflare Worker
 // ============================================================
 // Cambiá esta URL por la de tu Worker después de deployarlo
-const API_URL = "https://prode-mundial-2026.rgutierrez-689.workers.dev";
+const API_URL = "https://broad-poetry-a18a.rgutierrez-689.workers.dev";
 
 const defaultState = () => ({
   employees: DEFAULT_EMPLOYEES,
