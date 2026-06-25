@@ -302,8 +302,8 @@ const GROUPS_DATA = {
     { id:"F2", date:"2026-06-14T23:00", home:"Suecia",       away:"Túnez",        hf:"🇸🇪", af:"🇹🇳" },
     { id:"F3", date:"2026-06-20T14:00", home:"Países Bajos", away:"Suecia",       hf:"🇳🇱", af:"🇸🇪" },
     { id:"F4", date:"2026-06-21T01:00", home:"Túnez",        away:"Japón",        hf:"🇹🇳", af:"🇯🇵" },
-    { id:"F5", date:"2026-06-25T20:00", home:"Suecia",       away:"Países Bajos", hf:"🇸🇪", af:"🇳🇱" },
-    { id:"F6", date:"2026-06-25T20:00", home:"Japón",        away:"Túnez",        hf:"🇯🇵", af:"🇹🇳" },
+    { id:"F5", date:"2026-06-25T20:00", home:"Países Bajos", away:"Túnez",        hf:"🇳🇱", af:"🇹🇳" },
+{ id:"F6", date:"2026-06-25T20:00", home:"Japón",        away:"Suecia",       hf:"🇯🇵", af:"🇸🇪" },
   ]},
   // GRUPO G: Bélgica, Egipto, Irán, Nueva Zelanda
   G: { matches: [
