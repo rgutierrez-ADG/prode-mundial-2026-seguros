@@ -1554,7 +1554,7 @@ function AdminTab({ state, onResult, onKnockout }) {
       </>}
 
       {["r32","qf","sf","final"].includes(phase)&&(ko[phase]||[]).map(m=>(
-        <AdminCard key={m.id} match={{...m,home:resolve(m.slotA),away:resolve(m.slotB)}} state={state} onResult={onResult}/>
+        <AdminCard key={m.id} match={{...m,home:m.home||resolve(m.slotA),away:m.away||resolve(m.slotB)}} state={state} onResult={onResult}/>
       ))}
 
       {phase==="ko"&&<div>
