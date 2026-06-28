@@ -303,7 +303,7 @@ const GROUPS_DATA = {
     { id:"F3", date:"2026-06-20T14:00", home:"Países Bajos", away:"Suecia",       hf:"🇳🇱", af:"🇸🇪" },
     { id:"F4", date:"2026-06-21T01:00", home:"Túnez",        away:"Japón",        hf:"🇹🇳", af:"🇯🇵" },
     { id:"F5", date:"2026-06-25T20:00", home:"Países Bajos", away:"Túnez",        hf:"🇳🇱", af:"🇹🇳" },
-{ id:"F6", date:"2026-06-25T20:00", home:"Japón",        away:"Suecia",       hf:"🇯🇵", af:"🇸🇪" },
+    { id:"F6", date:"2026-06-25T20:00", home:"Japón",        away:"Suecia",       hf:"🇯🇵", af:"🇸🇪" },
   ]},
   // GRUPO G: Bélgica, Egipto, Irán, Nueva Zelanda
   G: { matches: [
@@ -363,43 +363,50 @@ const GROUPS_DATA = {
 
 // Knockout bracket — slots reference group positions (1A=1° Grupo A, 2B=2° Grupo B, etc.)
 const R32 = [
-  { id:"R32_1",  date:"2026-07-04T01:00", slotA:"1A", slotB:"2C", label:"Partido 1" },
-  { id:"R32_2",  date:"2026-07-04T17:00", slotA:"1C", slotB:"2A", label:"Partido 2" },
-  { id:"R32_3",  date:"2026-07-05T01:00", slotA:"1B", slotB:"2D", label:"Partido 3" },
-  { id:"R32_4",  date:"2026-07-05T17:00", slotA:"1D", slotB:"2B", label:"Partido 4" },
-  { id:"R32_5",  date:"2026-07-06T01:00", slotA:"1E", slotB:"2G", label:"Partido 5" },
-  { id:"R32_6",  date:"2026-07-06T17:00", slotA:"1G", slotB:"2E", label:"Partido 6" },
-  { id:"R32_7",  date:"2026-07-07T01:00", slotA:"1F", slotB:"2H", label:"Partido 7" },
-  { id:"R32_8",  date:"2026-07-07T17:00", slotA:"1H", slotB:"2F", label:"Partido 8" },
-  { id:"R32_9",  date:"2026-07-08T01:00", slotA:"1I", slotB:"2K", label:"Partido 9" },
-  { id:"R32_10", date:"2026-07-08T17:00", slotA:"1K", slotB:"2I", label:"Partido 10" },
-  { id:"R32_11", date:"2026-07-09T01:00", slotA:"1J", slotB:"2L", label:"Partido 11" },
-  { id:"R32_12", date:"2026-07-09T17:00", slotA:"1L", slotB:"2J", label:"Partido 12" },
-  { id:"R32_13", date:"2026-07-10T01:00", slotA:"3rd_1", slotB:"3rd_2", label:"3ros (1)" },
-  { id:"R32_14", date:"2026-07-10T17:00", slotA:"3rd_3", slotB:"3rd_4", label:"3ros (2)" },
-  { id:"R32_15", date:"2026-07-11T01:00", slotA:"3rd_5", slotB:"3rd_6", label:"3ros (3)" },
-  { id:"R32_16", date:"2026-07-11T17:00", slotA:"3rd_7", slotB:"3rd_8", label:"3ros (4)" },
+  // ── LADO IZQUIERDO ──────────────────────────────────────────
+  { id:"R32_1",  date:"2026-06-28T18:00", home:"Sudáfrica",       away:"Canadá",         label:"P73" },
+  { id:"R32_2",  date:"2026-06-29T19:30", home:"Alemania",        away:"Paraguay",       label:"P74" },
+  { id:"R32_3",  date:"2026-06-30T02:00", home:"Países Bajos",    away:"Marruecos",      label:"P75" },
+  { id:"R32_4",  date:"2026-06-30T22:00", home:"Francia",         away:"Suecia",         label:"P77" },
+  { id:"R32_5",  date:"2026-07-01T02:00", home:"México",          away:"Ecuador",        label:"P79" },
+  { id:"R32_6",  date:"2026-07-01T20:00", home:"Inglaterra",      away:"R.D. Congo",     label:"P80" },
+  { id:"R32_7",  date:"2026-07-02T02:00", home:"USA",             away:"Bosnia",         label:"P81" },
+  { id:"R32_8",  date:"2026-07-01T22:00", home:"Bélgica",         away:"Senegal",        label:"P82" },
+  // ── LADO DERECHO ─────────────────────────────────────────────
+  { id:"R32_9",  date:"2026-06-29T16:00", home:"Brasil",          away:"Japón",          label:"P76" },
+  { id:"R32_10", date:"2026-06-30T16:00", home:"Costa de Marfil", away:"Noruega",        label:"P78" },
+  { id:"R32_11", date:"2026-07-02T22:00", home:"Portugal",        away:"Croacia",        label:"P83" },
+  { id:"R32_12", date:"2026-07-02T19:00", home:"España",          away:"Austria",        label:"P84" },
+  { id:"R32_13", date:"2026-07-03T01:00", home:"Suiza",           away:"Argelia",        label:"P85" },
+  { id:"R32_14", date:"2026-07-04T01:00", home:"Argentina",       away:"Cabo Verde",     label:"P86" },
+  { id:"R32_15", date:"2026-07-04T02:30", home:"Colombia",        away:"Ghana",          label:"P87" },
+  { id:"R32_16", date:"2026-07-03T20:00", home:"Australia",       away:"Egipto",         label:"P88" },
 ];
 const QF = [
-  { id:"QF1", date:"2026-07-17T21:00", slotA:"W_R32_1",  slotB:"W_R32_2",  label:"QF 1" },
-  { id:"QF2", date:"2026-07-18T01:00", slotA:"W_R32_3",  slotB:"W_R32_4",  label:"QF 2" },
-  { id:"QF3", date:"2026-07-18T21:00", slotA:"W_R32_5",  slotB:"W_R32_6",  label:"QF 3" },
-  { id:"QF4", date:"2026-07-19T01:00", slotA:"W_R32_7",  slotB:"W_R32_8",  label:"QF 4" },
-  { id:"QF5", date:"2026-07-19T21:00", slotA:"W_R32_9",  slotB:"W_R32_10", label:"QF 5" },
-  { id:"QF6", date:"2026-07-20T01:00", slotA:"W_R32_11", slotB:"W_R32_12", label:"QF 6" },
-  { id:"QF7", date:"2026-07-20T21:00", slotA:"W_R32_13", slotB:"W_R32_14", label:"QF 7" },
-  { id:"QF8", date:"2026-07-21T01:00", slotA:"W_R32_15", slotB:"W_R32_16", label:"QF 8" },
+  // ── DIECISEISAVOS DE FINAL ───────────────────────────────────
+  { id:"QF1", date:"2026-07-04T22:00", slotA:"W_R32_2",  slotB:"W_R32_4",  label:"P89 - Dieciseisavos" },
+  { id:"QF2", date:"2026-07-04T19:00", slotA:"W_R32_1",  slotB:"W_R32_3",  label:"P90 - Dieciseisavos" },
+  { id:"QF3", date:"2026-07-05T22:00", slotA:"W_R32_9",  slotB:"W_R32_10", label:"P91 - Dieciseisavos" },
+  { id:"QF4", date:"2026-07-06T01:00", slotA:"W_R32_5",  slotB:"W_R32_6",  label:"P92 - Dieciseisavos" },
+  { id:"QF5", date:"2026-07-05T19:00", slotA:"W_R32_11", slotB:"W_R32_12", label:"P93 - Dieciseisavos" },
+  { id:"QF6", date:"2026-07-05T22:00", slotA:"W_R32_7",  slotB:"W_R32_8",  label:"P94 - Dieciseisavos" },
+  { id:"QF7", date:"2026-07-06T18:00", slotA:"W_R32_14", slotB:"W_R32_16", label:"P95 - Dieciseisavos" },
+  { id:"QF8", date:"2026-07-07T01:00", slotA:"W_R32_13", slotB:"W_R32_15", label:"P96 - Dieciseisavos" },
 ];
 const SF = [
-  { id:"SF1", date:"2026-07-26T21:00", slotA:"W_QF1", slotB:"W_QF2", label:"Semi 1" },
-  { id:"SF2", date:"2026-07-27T01:00", slotA:"W_QF3", slotB:"W_QF4", label:"Semi 2" },
-  { id:"SF3", date:"2026-07-27T21:00", slotA:"W_QF5", slotB:"W_QF6", label:"Semi 3" },
-  { id:"SF4", date:"2026-07-28T01:00", slotA:"W_QF7", slotB:"W_QF8", label:"Semi 4" },
+  // ── CUARTOS DE FINAL ────────────────────────────────────────
+  { id:"SF1", date:"2026-07-09T22:00", slotA:"W_QF1", slotB:"W_QF2", label:"P97 - Cuartos" },
+  { id:"SF2", date:"2026-07-09T19:00", slotA:"W_QF5", slotB:"W_QF6", label:"P98 - Cuartos" },
+  { id:"SF3", date:"2026-07-10T22:00", slotA:"W_QF3", slotB:"W_QF4", label:"P99 - Cuartos" },
+  { id:"SF4", date:"2026-07-11T01:00", slotA:"W_QF7", slotB:"W_QF8", label:"P100 - Cuartos" },
 ];
 const FINALS = [
-  { id:"F3P1",  date:"2026-08-01T21:00", slotA:"L_SF1", slotB:"L_SF2", label:"3° Puesto (1)" },
-  { id:"F3P2",  date:"2026-08-01T21:00", slotA:"L_SF3", slotB:"L_SF4", label:"3° Puesto (2)" },
-  { id:"FINAL", date:"2026-08-06T21:00", slotA:"W_SF_top", slotB:"W_SF_bot", label:"🏆 GRAN FINAL" },
+  // ── SEMIFINALES ─────────────────────────────────────────────
+  { id:"SF_A",  date:"2026-07-14T22:00", slotA:"W_SF1",  slotB:"W_SF2",  label:"P101 - Semifinal" },
+  { id:"SF_B",  date:"2026-07-15T22:00", slotA:"W_SF3",  slotB:"W_SF4",  label:"P102 - Semifinal" },
+  // ── FINAL Y 3° PUESTO ───────────────────────────────────────
+  { id:"F3P1",  date:"2026-07-18T22:00", slotA:"L_SF_A", slotB:"L_SF_B", label:"P103 - 3° Puesto" },
+  { id:"FINAL", date:"2026-07-19T22:00", slotA:"W_SF_A", slotB:"W_SF_B", label:"🏆 P104 - GRAN FINAL" },
 ];
 
 const JORNADAS = [
@@ -437,7 +444,7 @@ function allGroupMatches() {
 function allKnockoutMatches(kt) {
   const r = (s) => kt?.[s] || s;
   return [
-    ...R32.map(m=>({...m,phase:"R32",home:r(m.slotA),away:r(m.slotB)})),
+    ...R32.map(m=>({...m,phase:"R32",home:m.home,away:m.away})),
     ...QF.map(m=>({...m,phase:"QF",home:r(m.slotA),away:r(m.slotB)})),
     ...SF.map(m=>({...m,phase:"SF",home:r(m.slotA),away:r(m.slotB)})),
     ...FINALS.map(m=>({...m,phase:"F",home:r(m.slotA),away:r(m.slotB)})),
@@ -640,7 +647,8 @@ function isJornadaComplete(jornada, results) {
 // API CLIENT  —  apunta al Cloudflare Worker
 // ============================================================
 // Cambiá esta URL por la de tu Worker después de deployarlo
-const API_URL = "https://broad-poetry-a18a.rgutierrez-689.workers.dev";
+const API_URL = "https://prode-mundial-2026.rgutierrez-689.workers.dev";
+
 const defaultState = () => ({
   employees: DEFAULT_EMPLOYEES,
   predictions: {},
@@ -891,6 +899,36 @@ body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);min-
 // ============================================================
 // APP ROOT
 // ============================================================
+
+// ── AUTO-PROPAGACIÓN DE GANADORES ───────────────────────────
+function getWinnerName(matchId, home, away, results) {
+  const r = results[matchId];
+  if (!r) return null;
+  if (r.home > r.away) return home;
+  if (r.away > r.home) return away;
+  return null;
+}
+
+const BRACKET_MAP = {
+  "R32_1":  "W_R32_1",  "R32_2":  "W_R32_2",  "R32_3":  "W_R32_3",  "R32_4":  "W_R32_4",
+  "R32_5":  "W_R32_5",  "R32_6":  "W_R32_6",  "R32_7":  "W_R32_7",  "R32_8":  "W_R32_8",
+  "R32_9":  "W_R32_9",  "R32_10": "W_R32_10", "R32_11": "W_R32_11", "R32_12": "W_R32_12",
+  "R32_13": "W_R32_13", "R32_14": "W_R32_14", "R32_15": "W_R32_15", "R32_16": "W_R32_16",
+  "QF1": "W_QF1", "QF2": "W_QF2", "QF3": "W_QF3", "QF4": "W_QF4",
+  "QF5": "W_QF5", "QF6": "W_QF6", "QF7": "W_QF7", "QF8": "W_QF8",
+  "SF1": "W_SF1", "SF2": "W_SF2", "SF3": "W_SF3", "SF4": "W_SF4",
+  "SF_A": "W_SF_A", "SF_B": "W_SF_B",
+};
+
+function getMatchTeams(matchId, knockoutTeams) {
+  const resolve = s => knockoutTeams?.[s] || s;
+  const all = [...R32, ...QF, ...SF, ...FINALS];
+  const m = all.find(x => x.id === matchId);
+  if (!m) return { home: null, away: null };
+  if (m.home && !m.slotA) return { home: m.home, away: m.away };
+  return { home: resolve(m.slotA), away: resolve(m.slotB) };
+}
+
 export default function App() {
   const [user,    setUser]    = useState(null);
   const [isAdmin, setAdmin]   = useState(false);
@@ -959,9 +997,27 @@ export default function App() {
     if (isNaN(hv)||isNaN(av)) { showToast("Marcador inválido",true); return; }
     const newResults = {...state.results,[matchId]:{home:hv,away:av}};
     const ns = {...state, results: newResults};
+
+    const { home: teamHome, away: teamAway } = getMatchTeams(matchId, state.knockoutTeams);
+    const winnerSlot = BRACKET_MAP[matchId];
+    let newKnockoutTeams = {...(state.knockoutTeams||{})};
+
+    if (winnerSlot && teamHome && teamAway && teamHome !== teamAway) {
+      let winner = null;
+      if (hv > av) winner = teamHome;
+      else if (av > hv) winner = teamAway;
+      if (winner) {
+        newKnockoutTeams[winnerSlot] = winner;
+        ns.knockoutTeams = newKnockoutTeams;
+      }
+    }
+
     setState_(ns);
     try {
       await apiPost("/result", { matchId, home: hv, away: av }, true);
+      if (winnerSlot && newKnockoutTeams[winnerSlot]) {
+        await apiPost("/knockout", { slot: winnerSlot, team: newKnockoutTeams[winnerSlot] }, true);
+      }
       showToast("✅ Resultado guardado");
     } catch {
       showToast("Error al guardar resultado",true);
@@ -969,25 +1025,18 @@ export default function App() {
       return;
     }
 
-    // Check si jornada completa → enviar WhatsApp automático
     const sentJornadas = state.sentJornadas || [];
     for (const jornada of JORNADAS) {
       if (sentJornadas.includes(jornada.label)) continue;
       if (isJornadaComplete(jornada, newResults)) {
         const {apikey, phone} = state.waBotConfig || {};
-        const lb2 = buildLeaderboard(state.employees, state.predictions, newResults, state.knockoutTeams);
-
-        // Si no hay API configurada, ofrecer compartir imagen
+        const lb2 = buildLeaderboard(state.employees, state.predictions, newResults, newKnockoutTeams);
         if (!apikey || !phone) {
           showToast(`🎉 ${jornada.label} completa! Generando imagen...`);
           const r = await shareLeaderboard(jornada.label, lb2);
-          if (r.shared || r.downloaded) {
-            showToast(`✅ Tabla compartida: ${jornada.label}!`);
-          }
+          if (r.shared || r.downloaded) showToast(`✅ Tabla compartida: ${jornada.label}!`);
           return;
         }
-
-        // Si hay API, enviar texto automático
         showToast(`🎉 ${jornada.label} completa! Enviando WhatsApp...`);
         try {
           const msg = buildWAMsg(jornada.label, lb2);
@@ -999,11 +1048,11 @@ export default function App() {
             setState_(prev => ({...prev, sentJornadas:[...sentJornadas, jornada.label]}));
             showToast(`✅ WhatsApp enviado: ${jornada.label}!`);
           } else {
-            showToast("⚠️ WhatsApp falló. Generando imagen como alternativa...", true);
+            showToast("⚠️ WhatsApp falló. Generando imagen...", true);
             await shareLeaderboard(jornada.label, lb2);
           }
         } catch {
-          showToast("⚠️ Error de red. Generando imagen como alternativa...", true);
+          showToast("⚠️ Error de red. Generando imagen...", true);
           await shareLeaderboard(jornada.label, lb2);
         }
         break;
@@ -1286,7 +1335,7 @@ function FixtureTab({ user, isAdmin, state, phase, setPhase, selGrp, setSelGrp, 
       </>}
       {phase!=="groups" && (ko[phase]||[]).map(m=>(
         <MatchCard key={m.id}
-          match={{...m,home:resolve(m.slotA),away:resolve(m.slotB),hf:"⚽",af:"⚽"}}
+          match={{...m,home:m.home||resolve(m.slotA),away:m.away||resolve(m.slotB),hf:"⚽",af:"⚽"}}
           user={user} isAdmin={isAdmin} state={state} onSave={onSave} savedMap={savedMap}
           phaseLabel={m.label}
         />
