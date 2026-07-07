@@ -400,11 +400,13 @@ const SF = [
   { id:"SF3", date:"2026-07-10T22:00", slotA:"W_QF3", slotB:"W_QF4", label:"P99 - Cuartos" },
   { id:"SF4", date:"2026-07-11T01:00", slotA:"W_QF7", slotB:"W_QF8", label:"P100 - Cuartos" },
 ];
-const FINALS = [
+const SEMIS = [
   // ── SEMIFINALES ─────────────────────────────────────────────
-  { id:"SF_A",  date:"2026-07-14T22:00", slotA:"W_SF1",  slotB:"W_SF2",  label:"P101 - Semifinal" },
-  { id:"SF_B",  date:"2026-07-15T22:00", slotA:"W_SF3",  slotB:"W_SF4",  label:"P102 - Semifinal" },
-  // ── FINAL Y 3° PUESTO ───────────────────────────────────────
+  { id:"SF_A", date:"2026-07-14T22:00", slotA:"W_SF1", slotB:"W_SF2", label:"P101 - Semifinal" },
+  { id:"SF_B", date:"2026-07-15T22:00", slotA:"W_SF3", slotB:"W_SF4", label:"P102 - Semifinal" },
+];
+const FINALS = [
+  // ── 3° PUESTO Y GRAN FINAL ──────────────────────────────────
   { id:"F3P1",  date:"2026-07-18T22:00", slotA:"L_SF_A", slotB:"L_SF_B", label:"P103 - 3° Puesto" },
   { id:"FINAL", date:"2026-07-19T22:00", slotA:"W_SF_A", slotB:"W_SF_B", label:"🏆 P104 - GRAN FINAL" },
 ];
@@ -414,10 +416,12 @@ const JORNADAS = [
   { label:"Jornada 2 (15-17 Jun)", matchIds:["G1","G2","H1","H2","I1","I2","J1","J2","K1","K2","L1","L2"] },
   { label:"Jornada 3 (18-21 Jun)", matchIds:["A3","A4","B3","B4","C3","C4","D3","D4","E3","E4","F3","F4","G3","G4","H3","H4","I3","I4","J3","J4","K3","K4","L3","L4"] },
   { label:"Jornada 4 (22-27 Jun)", matchIds:["A5","A6","B5","B6","C5","C6","D5","D6","E5","E6","F5","F6","G5","G6","H5","H6","I5","I6","J5","J6","K5","K6","L5","L6"] },
-  { label:"Octavos de Final",       matchIds:R32.map(m=>m.id) },
-  { label:"Cuartos de Final",       matchIds:QF.map(m=>m.id) },
-  { label:"Semifinales",            matchIds:SF.map(m=>m.id) },
-  { label:"Final",                  matchIds:FINALS.map(m=>m.id) },
+  { label:"Treintaidosavos",         matchIds:R32.map(m=>m.id) },
+  { label:"Dieciseisavos",           matchIds:QF.map(m=>m.id) },
+  { label:"Octavos de Final",        matchIds:SF.map(m=>m.id) },
+  { label:"Cuartos de Final",         matchIds:SF.map(m=>m.id) },
+  { label:"Semifinales",               matchIds:SEMIS.map(m=>m.id) },
+  { label:"Final",                     matchIds:FINALS.map(m=>m.id) },
 ];
 
 // ============================================================
@@ -447,6 +451,7 @@ function allKnockoutMatches(kt) {
     ...R32.map(m=>({...m,phase:"R32",home:m.home,away:m.away})),
     ...QF.map(m=>({...m,phase:"QF",home:r(m.slotA),away:r(m.slotB)})),
     ...SF.map(m=>({...m,phase:"SF",home:r(m.slotA),away:r(m.slotB)})),
+    ...SEMIS.map(m=>({...m,phase:"SEMIS",home:r(m.slotA),away:r(m.slotB)})),
     ...FINALS.map(m=>({...m,phase:"F",home:r(m.slotA),away:r(m.slotB)})),
   ];
 }
@@ -917,7 +922,7 @@ const BRACKET_MAP = {
   "QF1": "W_QF1", "QF2": "W_QF2", "QF3": "W_QF3", "QF4": "W_QF4",
   "QF5": "W_QF5", "QF6": "W_QF6", "QF7": "W_QF7", "QF8": "W_QF8",
   "SF1": "W_SF1", "SF2": "W_SF2", "SF3": "W_SF3", "SF4": "W_SF4",
-  "SF_A": "W_SF_A", "SF_B": "W_SF_B",
+  "SF_A": "W_SF_A", "SF_B": "W_SF_B", "SF_C": "W_SF_C", "SF_D": "W_SF_D",
 };
 
 function getMatchTeams(matchId, knockoutTeams) {
@@ -1305,10 +1310,10 @@ function Login({ employees, onLogin }) {
 // ============================================================
 function FixtureTab({ user, isAdmin, state, phase, setPhase, selGrp, setSelGrp, onSave, savedMap }) {
   const phases = [
-    {k:"groups",l:"Grupos"},{k:"r32",l:"Octavos"},{k:"qf",l:"Cuartos"},
-    {k:"sf",l:"Semis"},{k:"final",l:"Final"},
+    {k:"groups",l:"Grupos"},{k:"r32",l:"32avos"},{k:"qf",l:"16avos"},
+    {k:"sf",l:"Octavos"},{k:"semis",l:"Semis"},{k:"final",l:"Final"},
   ];
-  const ko = { r32:R32, qf:QF, sf:SF, final:FINALS };
+  const ko = { r32:R32, qf:QF, sf:SF, semis:SEMIS, final:FINALS };
   const kt = state?.knockoutTeams||{};
   const resolve = s => kt[s]||s;
 
@@ -1511,9 +1516,10 @@ function BracketTab({ state, user }) {
         Los equipos se cargan desde Admin → Equipos Clasificados una vez terminada la fase de grupos.
         El bracket sigue el reglamento FIFA 2026 (1°A vs 2°C, etc.)
       </p>
-      {renderPhase("⚡ Octavos de Final", R32)}
-      {renderPhase("🔥 Cuartos de Final", QF)}
-      {renderPhase("🌟 Semifinales", SF)}
+      {renderPhase("⚡ Treintaidosavos de Final", R32)}
+      {renderPhase("🔥 Dieciseisavos de Final", QF)}
+      {renderPhase("⚡ Octavos de Final", SF)}
+      {renderPhase("🌟 Semifinales", SEMIS)}
       {renderPhase("🏆 Final & 3° Puesto", FINALS)}
     </div>
   );
@@ -1528,10 +1534,10 @@ function AdminTab({ state, onResult, onKnockout }) {
   const [ktInputs, setKtInputs] = useState({});
 
   const phases2=[
-    {k:"groups",l:"Grupos"},{k:"r32",l:"Octavos"},{k:"qf",l:"Cuartos"},
-    {k:"sf",l:"Semis"},{k:"final",l:"Final"},{k:"ko",l:"Equipos Clasificados"},
+    {k:"groups",l:"Grupos"},{k:"r32",l:"32avos"},{k:"qf",l:"16avos"},
+    {k:"sf",l:"Octavos"},{k:"semis",l:"Semis"},{k:"final",l:"Final"},{k:"ko",l:"Equipos Clasificados"},
   ];
-  const ko = { r32:R32, qf:QF, sf:SF, final:FINALS };
+  const ko = { r32:R32, qf:QF, sf:SF, semis:SEMIS, final:FINALS };
   const kt = state?.knockoutTeams||{};
   const resolve=s=>kt[s]||s;
 
