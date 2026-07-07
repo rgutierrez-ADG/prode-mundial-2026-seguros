@@ -418,7 +418,7 @@ const JORNADAS = [
   { label:"Jornada 4 (22-27 Jun)", matchIds:["A5","A6","B5","B6","C5","C6","D5","D6","E5","E6","F5","F6","G5","G6","H5","H6","I5","I6","J5","J6","K5","K6","L5","L6"] },
   { label:"Treintaidosavos",         matchIds:R32.map(m=>m.id) },
   { label:"Dieciseisavos",           matchIds:QF.map(m=>m.id) },
-  { label:"Octavos de Final",        matchIds:SF.map(m=>m.id) },
+  { label:"Cuartos de Final",         matchIds:SF.map(m=>m.id) },
   { label:"Cuartos de Final",         matchIds:SF.map(m=>m.id) },
   { label:"Semifinales",               matchIds:SEMIS.map(m=>m.id) },
   { label:"Final",                     matchIds:FINALS.map(m=>m.id) },
@@ -922,7 +922,7 @@ const BRACKET_MAP = {
   "QF1": "W_QF1", "QF2": "W_QF2", "QF3": "W_QF3", "QF4": "W_QF4",
   "QF5": "W_QF5", "QF6": "W_QF6", "QF7": "W_QF7", "QF8": "W_QF8",
   "SF1": "W_SF1", "SF2": "W_SF2", "SF3": "W_SF3", "SF4": "W_SF4",
-  "SF_A": "W_SF_A", "SF_B": "W_SF_B", "SF_C": "W_SF_C", "SF_D": "W_SF_D",
+  "SF_A": "W_SF_A", "SF_B": "W_SF_B",
 };
 
 function getMatchTeams(matchId, knockoutTeams) {
@@ -1310,8 +1310,8 @@ function Login({ employees, onLogin }) {
 // ============================================================
 function FixtureTab({ user, isAdmin, state, phase, setPhase, selGrp, setSelGrp, onSave, savedMap }) {
   const phases = [
-    {k:"groups",l:"Grupos"},{k:"r32",l:"32avos"},{k:"qf",l:"16avos"},
-    {k:"sf",l:"Octavos"},{k:"semis",l:"Semis"},{k:"final",l:"Final"},
+    {k:"groups",l:"Grupos"},{k:"r32",l:"32avos"},{k:"qf",l:"16avos (QF)"},
+    {k:"sf",l:"Cuartos"},{k:"semis",l:"Semis"},{k:"final",l:"Final"},
   ];
   const ko = { r32:R32, qf:QF, sf:SF, semis:SEMIS, final:FINALS };
   const kt = state?.knockoutTeams||{};
@@ -1518,7 +1518,7 @@ function BracketTab({ state, user }) {
       </p>
       {renderPhase("⚡ Treintaidosavos de Final", R32)}
       {renderPhase("🔥 Dieciseisavos de Final", QF)}
-      {renderPhase("⚡ Octavos de Final", SF)}
+      {renderPhase("⚡ Cuartos de Final", SF)}
       {renderPhase("🌟 Semifinales", SEMIS)}
       {renderPhase("🏆 Final & 3° Puesto", FINALS)}
     </div>
@@ -1534,8 +1534,8 @@ function AdminTab({ state, onResult, onKnockout }) {
   const [ktInputs, setKtInputs] = useState({});
 
   const phases2=[
-    {k:"groups",l:"Grupos"},{k:"r32",l:"32avos"},{k:"qf",l:"16avos"},
-    {k:"sf",l:"Octavos"},{k:"semis",l:"Semis"},{k:"final",l:"Final"},{k:"ko",l:"Equipos Clasificados"},
+    {k:"groups",l:"Grupos"},{k:"r32",l:"32avos"},{k:"qf",l:"16avos (QF)"},
+    {k:"sf",l:"Cuartos"},{k:"semis",l:"Semis"},{k:"final",l:"Final"},{k:"ko",l:"Equipos Clasificados"},
   ];
   const ko = { r32:R32, qf:QF, sf:SF, semis:SEMIS, final:FINALS };
   const kt = state?.knockoutTeams||{};
@@ -1559,7 +1559,7 @@ function AdminTab({ state, onResult, onKnockout }) {
         ))}
       </>}
 
-      {["r32","qf","sf","final"].includes(phase)&&(ko[phase]||[]).map(m=>(
+      {["r32","qf","sf","semis","final"].includes(phase)&&(ko[phase]||[]).map(m=>(
         <AdminCard key={m.id} match={{...m,home:m.home||resolve(m.slotA),away:m.away||resolve(m.slotB)}} state={state} onResult={onResult}/>
       ))}
 
